@@ -5,7 +5,7 @@
 
 {% endblock menu %}
 
-{% block title %}{{ project.title }}{% endblock %}
+{% block title %} опрос > {% endblock %}
 
 
 
@@ -15,26 +15,19 @@
 
 <div class="guest_card card border-dark mt-5" style="max-width: 18rem;">
       <div class="card-header">
-          <span>{{ project.title }}</span>
+          <span>Вопрос: {{ poll.question }}</span>
       </div>
       <div class="card-body text-dark">
         <h5 class="card-title"></h5>
-            <p class="card-text">Дата начала : {{ project.start_time }}</p>
-            <p>Дата окончания: {{ project.end_time }}</p>
-            {% if project.description %}
-                <p class="card-text">Описание : {{ project.description }}</p>
-            {% else %}
-                <p class="card-text">Описание не указано</p>
-            {% endif %}
             <div>
-                {% for issue in project.project_issues.all %}
+                {% for answer in poll.answers.all %}
                 <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
                     <div class="card-header">
-                        <span><a href="{% url 'issue_view' issue.pk %}">{{ issue.summary }}</a></span>
+                        <p>Ответы:</p>
+                        <span>{{ answer.option_text }}</span>
                     </div>
                     <div class="card-body text-dark">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">Статус : {{ issue.status }}</p>
                     </div>
                 </div>
                 {% endfor %}

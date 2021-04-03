@@ -13,7 +13,7 @@ class IndexPolls(ListView):
     paginate_orphans = 3
 
 
-class ProjectView(DetailView):
+class PollView(DetailView):
     template_name = 'polls/poll_view.html'
     model = Poll
     context_object_name = 'poll'
