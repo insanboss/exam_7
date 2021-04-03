@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <div class=".bg-light">
+        <h1 class="main_title">Вопросы</h1>
+
+        {% for poll in polls %}
+            <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
+              <div class="card-header">
+                  <span> Опрос: </span>
+              </div>
+              <div class="card-body text-dark">
+                <h5 class="card-title"></h5>
+                    <p class="card-text">{{ poll.question }}</p>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if is_paginated %}
+    {% include 'partial/pagination.html' %}
+    {% endif %}
+
+{% endblock %}

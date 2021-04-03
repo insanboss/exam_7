@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from survey_app.views import (
+    IndexPolls
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', IndexPolls.as_view(), name='index_polls'),
 ]
