@@ -19,10 +19,12 @@ from django.urls import path
 from survey_app.views import (
     IndexPolls,
     PollView,
+    PollCreate,
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexPolls.as_view(), name='index_polls'),
     path('poll/<int:pk>/', PollView.as_view(), name='poll_view'),
+    path('poll/create/', PollCreate.as_view(), name='poll_create'),
 ]
