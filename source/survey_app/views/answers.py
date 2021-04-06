@@ -29,6 +29,14 @@ class UpdateAnswer(UpdateView):
         return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
 
 
+class DeleteAnswer(DeleteView):
+    template_name = 'answers/delete_answer.html'
+    model = AnswerOption
+    context_object_name = 'answer'
+    success_url = reverse_lazy('index_polls')
+
+
+
 
 
 

@@ -30,6 +30,7 @@
                         <p>Ответы:</p>
                         <div>{{ answer.option_text }}</div>
                         <div><a href="{% url 'update_answer' answer.id  %}">Отредактировать</a></div>
+                        <div><a href="{% url 'delete_answer' answer.id  %}">Удалить</a></div>
                     </div>
                     <div class="card-body text-dark">
                     <h5 class="card-title"></h5>
