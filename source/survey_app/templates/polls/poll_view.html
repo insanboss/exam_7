@@ -4,6 +4,8 @@
 {% block menu %}
     <li><a href="{% url 'poll_create' %}">Create poll</a></li>
     <li><a href="{% url 'poll_update' poll.id %}">Update poll</a></li>
+    <li><a href="{% url 'poll_delete' poll.id %}">Delete poll</a></li>
+    <li><a href="{% url 'add_answer' poll.pk %}">Add answer</a></li>
 
 {% endblock menu %}
 

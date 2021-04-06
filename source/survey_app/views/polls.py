@@ -1,5 +1,5 @@
-from django.urls import reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from survey_app.forms import PollForm
 from survey_app.models import Poll
@@ -9,7 +9,7 @@ class IndexPolls(ListView):
     template_name = 'polls/index_polls.html'
     context_object_name = 'polls'
     model = Poll
-    ordering = 'created_at'
+    queryset = Poll.objects.order_by('-created_at')
 
     paginate_by = 5
     paginate_orphans = 3
@@ -39,3 +39,9 @@ class PollUpdate(UpdateView):
     def get_success_url(self):
         return reverse('poll_view', kwargs={'pk': self.object.pk})
 
+
+class PollDelete(DeleteView):
+    template_name = 'polls/poll_delete.html'
+    model = Poll
+    context_object_name = 'poll'
+    success_url = reverse_lazy('index_polls')

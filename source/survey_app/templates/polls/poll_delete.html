@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтвердите удаление опроса{% endblock %}
+{% block page_header %}Вы уверены, что хотите удалить опрос {{ poll.question }}?{% endblock page_header %}
+
+{% block content%}
+    <form action="{% url "poll_delete" poll.id %}" method="POST">
+        {% include 'partial/form.html' with button_text="Конечно я хочу удалить опрос" %}
+        <a href="{% url "poll_view" poll.id %}">Нее, передумал что-то</a>
+    </form>
+{% endblock content %}

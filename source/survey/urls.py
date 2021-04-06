@@ -21,6 +21,11 @@ from survey_app.views import (
     PollView,
     PollCreate,
     PollUpdate,
+    PollDelete,
+)
+
+from survey_app.views.answers import (
+    AddAnswer
 )
 
 urlpatterns = [
@@ -29,4 +34,6 @@ urlpatterns = [
     path('poll/<int:pk>/', PollView.as_view(), name='poll_view'),
     path('poll/create/', PollCreate.as_view(), name='poll_create'),
     path('poll/<int:pk>/update/', PollUpdate.as_view(), name='poll_update'),
+    path('poll/<int:pk>/delete/', PollDelete.as_view(), name='poll_delete'),
+    path('answer/<int:pk>/add_answer', AddAnswer.as_view(), name='add_answer'),
 ]

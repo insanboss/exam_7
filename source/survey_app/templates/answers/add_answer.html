@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Add answer{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Add answer</h1>
+        <form method="post" action="">
+            {% include "partial/form.html" with button_text="Add" %}
+        </form>
+    </div>
+{% endblock %}
