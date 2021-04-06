@@ -2,6 +2,8 @@
 
 
 {% block menu %}
+    <li><a href="{% url 'poll_create' %}">Create poll</a></li>
+    <li><a href="{% url 'poll_update' poll.id %}">Update poll</a></li>
 
 {% endblock menu %}
 

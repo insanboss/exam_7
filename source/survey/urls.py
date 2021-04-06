@@ -20,6 +20,7 @@ from survey_app.views import (
     IndexPolls,
     PollView,
     PollCreate,
+    PollUpdate,
 )
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path('', IndexPolls.as_view(), name='index_polls'),
     path('poll/<int:pk>/', PollView.as_view(), name='poll_view'),
     path('poll/create/', PollCreate.as_view(), name='poll_create'),
+    path('poll/<int:pk>/update/', PollUpdate.as_view(), name='poll_update'),
 ]
