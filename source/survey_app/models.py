@@ -24,3 +24,11 @@ class AnswerOption(models.Model):
 
     def __str__(self):
         return "{}. {}".format(self.poll, self.option_text)
+
+
+class AnswerPoll(models.Model):
+    poll = models.ForeignKey('survey_app.Poll', related_name='PollAnswer',
+                             on_delete=models.CASCADE, verbose_name='опрос')
+    answer = models.ForeignKey('survey_app.AnswerOption',
+                               related_name='AnswerPoll', on_delete=models.CASCADE, verbose_name='ответ')
+    created_at = models.DateTimeField(auto_now_add=True)
