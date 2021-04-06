@@ -28,7 +28,8 @@
                 <div class="guest_card card border-dark mb-5" style="max-width: 18rem;">
                     <div class="card-header">
                         <p>Ответы:</p>
-                        <span>{{ answer.option_text }}</span>
+                        <div>{{ answer.option_text }}</div>
+                        <div><a href="{% url 'update_answer' answer.id  %}">Отредактировать</a></div>
                     </div>
                     <div class="card-body text-dark">
                     <h5 class="card-title"></h5>

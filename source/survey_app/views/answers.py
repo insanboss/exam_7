@@ -19,7 +19,16 @@ class AddAnswer(CreateView):
         return redirect('poll_view', pk=poll.pk)
 
 
-
+class UpdateAnswer(UpdateView):
+    template_name = 'answers/update_answer.html'
+    model = AnswerOption
+    form_class = AnswerOptionForm
+    context_object_name = 'answer'
 
     def get_success_url(self):
-        return reverse('poll_view', kwargs={'pk': self.object.pk})
+        return reverse('poll_view', kwargs={'pk': self.object.poll.pk})
+
+
+
+
+
