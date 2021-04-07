@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Update poll{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <div>
+        <h1> Сбор ответов </h1>
+    {{ poll.question }}
+        <form action="" method="post" >
+        {% csrf_token %}
+
+                <select name="answer">
+                    {% for answer in answers %}
+                        <option value="{{ answer.id }}">{{ answer.option_text }}</option>
+                    {% endfor %}
+                </select>
+        <button type="submit">Send</button>
+        </form>
+    </div>
+{% endblock %}

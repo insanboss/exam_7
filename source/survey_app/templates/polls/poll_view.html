@@ -33,7 +33,9 @@
                         <div><a href="{% url 'delete_answer' answer.id  %}">Удалить</a></div>
                     </div>
                     <div class="card-body text-dark">
-                    <h5 class="card-title"></h5>
+                    <h5 class="card-title">
+                        <span><a href="{% url 'answer_collect' poll.pk %}">Сбор ответов</a></span>
+                    </h5>
                     </div>
                 </div>
                 {% endfor %}

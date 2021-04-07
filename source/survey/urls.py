@@ -25,7 +25,10 @@ from survey_app.views import (
 )
 
 from survey_app.views.answers import (
-    AddAnswer, UpdateAnswer, DeleteAnswer
+    AddAnswer,
+    UpdateAnswer,
+    DeleteAnswer,
+    AnswerCollect,
 )
 
 urlpatterns = [
@@ -38,5 +41,5 @@ urlpatterns = [
     path('answer/<int:pk>/add_answer/', AddAnswer.as_view(), name='add_answer'),
     path('answer/<int:pk>/update/', UpdateAnswer.as_view(), name='update_answer'),
     path('answer/<int:pk>/delete/', DeleteAnswer.as_view(), name='delete_answer'),
-
+    path('survey/<int:pk>/', AnswerCollect.as_view(), name='answer_collect'),
 ]
